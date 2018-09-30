@@ -14,10 +14,18 @@ tempFun.writeFeather <- function(args.DATA.PATH, args.TRAFFIC.DATA.FOLDERNAME){
                          file.path(traffic.Data.Path, "trafficData.feather"))
 }
 
-if (args.TEMP.DATA.UPDATE == T){
+if (args.TEMP.DATA.UPDATE){
   tempFun.writeFeather(args.DATA.PATH, args.TRAFFIC.DATA.FOLDERNAME) # update dataset
 }
-my_data <- feather::read_feather(file.path(default_data_path,
-                                           default_traffic_data_foldername,
+dataTraffic <- feather::read_feather(file.path(args.DATA.PATH,
+                                           args.TRAFFIC.DATA.FOLDERNAME,
                                            'trafficData.feather'))
 
+
+# MAP ---------------------------------------------------------------------
+
+if (args.TEMP.DATA.UPDATE){
+  source(file.path(args.DATA.PATH,'sysdata','readMap.R')) # update dataset
+  source(file.path(args.DATA.PATH,'sysdata','updateMap.R'))
+}
+load(file = file.path(args.DATA.PATH, "sysdata", "ukmaps.rds"))
