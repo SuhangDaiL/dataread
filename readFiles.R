@@ -17,7 +17,7 @@ tempFun.writeFeather <- function(args.DATA.PATH, args.TRAFFIC.DATA.FOLDERNAME){
 if (args.TEMP.DATA.UPDATE){
   tempFun.writeFeather(args.DATA.PATH, args.TRAFFIC.DATA.FOLDERNAME) # update dataset
 }
-dataTraffic <- feather::read_feather(file.path(args.DATA.PATH,
+data.Traffic <- feather::read_feather(file.path(args.DATA.PATH,
                                            args.TRAFFIC.DATA.FOLDERNAME,
                                            'trafficData.feather'))
 
