@@ -58,7 +58,7 @@ temp.col <- data.frame(temp.marker@coords, "Col_Sect" = args.MAP.SECT.MARKERONLY
 colnames(temp.col) <- c("Col_long", "Col_lat", "Col_Sect")
 temp.del <- data.frame(temp.marker@coords, "Dol_Sect" = args.MAP.SECT.MARKERONLY@data$name)
 colnames(temp.del) <- c("Del_long", "Del_lat", "Del_Sect")
-tempData <- tempData.Traffic %>%
+tempData <- tempData %>%
   left_join(temp.col, by = "Col_Sect") %>%
   left_join(temp.del, by = "Del_Sect")
 
